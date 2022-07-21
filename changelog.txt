@@ -9,6 +9,7 @@ V.Next
 - [MINOR] Add Open Telemetry explicitly in common as transitive is set to false (#1882)
 - [MINOR] Add open telemetry to consumer rules (#1883)
 - [PATCH] Fixes MSAL Issue #1715 (#1894)
+- [MINOR] Added application identifier to cache (physical identifier).  Prevents multiple apps using the same logical identifier from sharing tokens. (#1660)
 
 V.8.0.3
 ----------
