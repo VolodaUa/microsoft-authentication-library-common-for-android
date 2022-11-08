@@ -146,9 +146,16 @@ public class PlayStore implements IAppInstaller {
     private void installOrUpdateAppFromMarketPageInternal(String playStoreAction) throws UiObjectNotFoundException {
         Logger.i(TAG, "Performing " + playStoreAction + " App From Market Page Internal..");
         final UiDevice device = UiDevice.getInstance(getInstrumentation());
-        final UiObject uiObjBtn = device.findObject(
-                new UiSelector().className(Button.class).text(playStoreAction).enabled(true)
-        );
+        final UiObject uiObjBtn;
+        if (android.os.Build.VERSION.SDK_INT == 32) {
+            uiObjBtn = device.findObject(
+                    new UiSelector().description(playStoreAction).enabled(true)
+            );
+        } else {
+            uiObjBtn = device.findObject(
+                    new UiSelector().className(Button.class).text(playStoreAction).enabled(true)
+            );
+        }
 
         uiObjBtn.waitForExists(FIND_UI_ELEMENT_TIMEOUT);
         uiObjBtn.click();
@@ -158,9 +165,16 @@ public class PlayStore implements IAppInstaller {
 
     private void checkInstallCompletion() {
         final UiDevice device = UiDevice.getInstance(getInstrumentation());
-        final UiObject openButton = device.findObject(
-                new UiSelector().className(Button.class).text("Open").enabled(true)
-        );
+        final UiObject openButton;
+        if (android.os.Build.VERSION.SDK_INT == 32) {
+            openButton = device.findObject(
+                    new UiSelector().description("Open").enabled(true)
+            );
+        } else {
+            openButton = device.findObject(
+                    new UiSelector().className(Button.class).text("Open").enabled(true)
+            );
+        }
 
         openButton.waitForExists(PLAY_STORE_INSTALL_OR_UPDATE_APP_TIMEOUT);
     }
