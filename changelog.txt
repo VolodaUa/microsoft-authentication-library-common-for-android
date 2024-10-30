@@ -1,5 +1,6 @@
 vNext
-----------
+---------
+- [MINOR] On GetPreferredAuthMethod return NONE when Authenticator is not installed (#2523)
 - [MINOR] Migrate URIbuilder to httpcore5 (#2522)
 
 Version 18.1.0
