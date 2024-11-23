@@ -1,6 +1,7 @@
 vNext
 ----------
 - [PATCH] Translate MFA token error to UIRequiredException instead of ServiceException (#2538)
+- [MINOR] Add Child Spans for Interactive Span (#2516)
 
 Version 18.2.2
 ----------
